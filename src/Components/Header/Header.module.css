@@ -1,0 +1,18 @@
+.navLink {
+  color: black;
+  text-decoration: none;
+}
+
+.navLinkActive {
+  color: #c0392b;
+}
+.navigation {
+  display: flex;
+  list-style: none;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.navigation li {
+  margin-right: 20px;
+}

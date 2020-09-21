@@ -1,0 +1,46 @@
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+.searchInput {
+  height: 50px;
+  width: 400px;
+  font-size: 25px;
+  color: #c0392b;
+}
+
+.form__btn {
+  width: 100px;
+  height: 55px;
+  background: none;
+  border: 1px solid #000;
+  padding: 10px 20px;
+  color: #c0392b;
+  font-size: 15px;
+  font-family: "Roboto";
+  cursor: pointer;
+  outline: none;
+  transition: 0.8s;
+  position: relative;
+  overflow: hidden;
+}
+
+.form__btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 0%;
+  background: #000;
+  z-index: -1;
+  transition: 0.8s;
+  border-radius: 0 0 50% 50%;
+}
+.form__btn:hover {
+  color: #fff;
+}
+.form__btn:hover::before {
+  height: 180%;
+}
