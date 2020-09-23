@@ -1,0 +1,8 @@
+.cast {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+}
+.cast__item {
+  margin: 15px;
+}

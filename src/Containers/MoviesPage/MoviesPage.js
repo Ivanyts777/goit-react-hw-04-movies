@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import SerchBox from "../../Components/SearchBox/SearchBox";
 import parseQueryString from "../../utils/parseQueryString";
 import moviesApi from "../../Services/moviesApi";
-
-import Loader from "react-loader-spinner";
 import styles from "./MoviesPage.module.css";
 import MoviesItem from "../../Components/moviesItem/MoviesItem";
 

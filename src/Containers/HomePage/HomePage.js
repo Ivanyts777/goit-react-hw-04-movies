@@ -19,7 +19,6 @@ class HomePage extends Component {
     try {
       this.errorToogle(false);
       const result = await getFilmsPopular();
-      console.log(result);
       await this.setState({ movies: result });
     } catch (error) {
       this.errorToogle(true);

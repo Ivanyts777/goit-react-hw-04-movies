@@ -20,13 +20,13 @@ export const getFilmsReviews = (movie_id) => {
     .get(
       `${url_movie}movie/${movie_id}/reviews?api_key=${api_key}&language=en-US&page=1`
     )
-    .then((response) => response.data.results);
+    .then((response) => response);
 };
 
 export const getFilmsCast = (movie_id) => {
   return axios
     .get(`${url_movie}movie/${movie_id}/credits?api_key=${api_key}`)
-    .then((response) => response.data.cast);
+    .then((response) => response);
 };
 
 const getFilmsFromQuery = (searchQuery) => {
