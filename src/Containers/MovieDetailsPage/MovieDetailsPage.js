@@ -21,7 +21,11 @@ const MovieDetailsPage = ({ match }) => {
         <div className={styles.film__info}>
           <div className={styles.film__poster}>
             <img
-              src={`https://image.tmdb.org/t/p/w220_and_h330_face${poster_path}`}
+              src={
+                poster_path
+                  ? `https://image.tmdb.org/t/p/w220_and_h330_face${poster_path}`
+                  : `https://difelabookstore.co.za/img/products/361316%20NoImage.png`
+              }
               alt={title}
               width="320"
               height="440"

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Loader from "react-loader-spinner";
 import { getFilmsPopular } from "../../Services/moviesApi";
-import styles from "./HomePage.module.css";
 import MoviesItem from "../../Components/moviesItem/MoviesItem";
+import styles from "./HomePage.module.css";
 
 class HomePage extends Component {
   state = {
@@ -49,7 +49,12 @@ class HomePage extends Component {
         )}
         <ul className={styles.movie__list}>
           {movies.map((el) => (
-            <MoviesItem key={el.id} {...el} />
+            <MoviesItem
+              url={this.props.match.url}
+              location={this.props.location}
+              key={el.id}
+              {...el}
+            />
           ))}
         </ul>
       </div>

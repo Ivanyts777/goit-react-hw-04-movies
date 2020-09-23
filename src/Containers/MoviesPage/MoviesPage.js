@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import SerchBox from "../../Components/SearchBox/SearchBox";
 import parseQueryString from "../../utils/parseQueryString";
-import moviesApi from "../../Services/moviesApi";
-import styles from "./MoviesPage.module.css";
+import { getFilmsFromQuery } from "../../Services/moviesApi";
 import MoviesItem from "../../Components/moviesItem/MoviesItem";
+import styles from "./MoviesPage.module.css";
 
 class MoviesPage extends Component {
   state = {
@@ -15,9 +15,9 @@ class MoviesPage extends Component {
   componentDidMount() {
     const { query } = parseQueryString(this.props.location.search);
     if (query) {
-      moviesApi
-        .getFilmsFromQuery(query)
-        .then((movies) => this.setState({ movies: movies }));
+      getFilmsFromQuery(query).then((movies) =>
+        this.setState({ movies: movies })
+      );
     }
   }
 
@@ -25,9 +25,9 @@ class MoviesPage extends Component {
     const { query: prevQuery } = parseQueryString(prevProps.location.search);
     const { query: nextQuery } = parseQueryString(this.props.location.search);
     if (prevQuery !== nextQuery) {
-      moviesApi
-        .getFilmsFromQuery(nextQuery)
-        .then((movies) => this.setState({ movies: movies }));
+      getFilmsFromQuery(nextQuery).then((movies) =>
+        this.setState({ movies: movies })
+      );
     }
   }
 
@@ -45,7 +45,14 @@ class MoviesPage extends Component {
         <SerchBox onSubmit={this.handleChangeQuery} />
         <ul className={styles.movie__list}>
           {movies.length > 0 &&
-            movies.map((el) => <MoviesItem key={el.id} {...el} />)}
+            movies.map((el) => (
+              <MoviesItem
+                url={this.props.match.url}
+                location={this.props.location}
+                key={el.id}
+                {...el}
+              />
+            ))}
         </ul>
       </>
     );

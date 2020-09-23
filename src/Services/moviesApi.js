@@ -5,7 +5,7 @@ const url_movie = "https://api.themoviedb.org/3/";
 
 export const getFilmsPopular = () => {
   return axios
-    .get(`${url_movie}trending/all/day?api_key=${api_key}`)
+    .get(`${url_movie}trending/all/week?api_key=${api_key}`)
     .then((response) => response.data.results);
 };
 
@@ -29,10 +29,8 @@ export const getFilmsCast = (movie_id) => {
     .then((response) => response);
 };
 
-const getFilmsFromQuery = (searchQuery) => {
+export const getFilmsFromQuery = (searchQuery) => {
   return axios
     .get(`${url_movie}search/movie?api_key=${api_key}&query=${searchQuery}`)
     .then((response) => response.data.results);
 };
-
-export default { getFilmsFromQuery };
